@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+ <!-- JavaScript Bundle with Popper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    table.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1{
+        text-align: center;
+        color:blue;
+                  }
+    h2{
+      text-align: center;
+      color:red;
+                }
+    h3{
+      text-align: center;
+      margin-left:0px;
+      color:black;
+                }
+    h4{
+      text-align: center;
+      margin-left:0px;
+      color:Red;
+                }
+
+
+
+
+    a{
+      text-align: center;
+      color:blue;
+                }
+    x{
+      margin-left: 20px;
+      color:red;
+                }
+    </style>
+    <title>Home - Quran Translation</title>
+</head>
+<body>
+      <!--------------------Start navbar------------------------>
+      <nav class="navbar sticky-top navbar-light-bg-light" style="background-color: #060606;">
+        <div class="container-fluid">
+ <a class="btn btn-warning w-20  btn"style="" href=" "> </a>
+ 
+</div>
+</nav>
+  <!--------------------End navbar------------------------>
+
+  {% block content %}
+
+
+    <h3> কোরানুল মাজিদ  </h3>  
+    <h4> নিশ্চয় এতে চিন্তাশীলদের জন্যে নিদর্শনাবলী রয়েছে। [সুরা হিজর - ১৫:৭৫]  </h4>
+   
+    <h3>  তবে কি তারা কুরআন নিয়ে গভীর চিন্তা- ভাবনা করে না?<br> নাকি তাদের অন্তরসমূহে তালা রয়েছে? [সুরা মুহাম্মাদ - ৪৭:২৪] </h3>
+  
+    {% for sura in suras %}
+    <h3><a href="{% url 'sura_view' sura.number %}"> সূরা নাম্বারঃ {{ sura.number }}-  {{ sura.name }}</a></h3><br>
+  
+        
+    {% endfor %}
+</body>
+{% endblock %}
+</html>
